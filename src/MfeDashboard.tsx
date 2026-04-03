@@ -2,7 +2,9 @@ import { ArrowUpRight, ArrowDownRight, Activity, Zap, ShieldCheck } from 'lucide
 
 const DashboardUI = () => {
   return (
-    <div className="w-full h-full p-6 bg-white rounded-3xl border border-slate-200 shadow-sm">
+    // FIX: Removed `h-full` so the white container expands to fit the chart and nodes automatically.
+    <div className="w-full p-6 sm:p-8 bg-white rounded-3xl border border-slate-200 shadow-sm">
+      
       {/* 1. Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
@@ -42,6 +44,7 @@ const DashboardUI = () => {
 
       {/* 3. Main Content Split */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
         {/* Large Chart Area */}
         <div className="lg:col-span-3 rounded-2xl bg-slate-50 border border-slate-100 p-6">
           <div className="flex items-center justify-between mb-6">
@@ -55,11 +58,12 @@ const DashboardUI = () => {
               </div>
             </div>
           </div>
+          
           {/* Placeholder for actual Chart logic */}
           <div className="h-[300px] flex items-center justify-center border-2 border-dashed border-slate-200 rounded-xl relative overflow-hidden bg-white/50">
-             <div className="absolute inset-0 flex items-end justify-around px-8 pt-12">
+             <div className="absolute inset-0 flex items-end justify-around px-2 sm:px-8 pt-12">
                 {[40, 70, 45, 90, 65, 80, 50, 30, 85, 60].map((h, i) => (
-                  <div key={i} className="w-6 bg-indigo-100 rounded-t-sm transition-all hover:bg-indigo-500" style={{ height: `${h}%` }}></div>
+                  <div key={i} className="w-4 sm:w-6 bg-indigo-100 rounded-t-sm transition-all hover:bg-indigo-500" style={{ height: `${h}%` }}></div>
                 ))}
              </div>
              <p className="z-10 text-slate-400 font-bold uppercase tracking-widest text-xs">Live Data Stream</p>
